@@ -27,7 +27,7 @@ Users should be able to:
 
 ## Links
 
-- Solution URL: [Add solution URL here]
+- Solution URL: [https://www.frontendmentor.io/solutions/interactive-card-details-form-using-html-css-javascript-and-flex-spans8EEX1]
 - Live Site URL: [https://genesisgran.github.io/interactive-card-details-form/]
 
 ## Built with
