@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Interactive card details form</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="flex">
+    <main class="flex">
+      <h1 class="sr-only">Frontend Mentor | Interactive card details form</h1>
+      <div class="card flex">
+        <div class="cardFront">
+          <img src="images/card-logo.svg" alt="Card" />
+          <div id="card-number">0000 0000 0000 0000</div>
+          <div class="card-details flex">
+            <div id="card-name">JANE APPLESEED</div>
+            <div id="card-expDate">
+              <span id="card-expMonth">00</span>/<span id="card-expYear"
+                >00</span
+              >
+            </div>
+          </div>
+        </div>
+        <div class="cardBack"><div id="card-cvc">000</div></div>
+      </div>
+      <form class="flex" onsubmit="toogleThankYou()" method="POST">
+        <div>
+          <label for="name">CARDHOLDER NAME</label><br />
+          <input
+            required
+            placeholder="e.g. Jane Appleseed"
+            type="text"
+            name="name"
+            id="name"
+            oninvalid="toogleError(this, null)"
+            onfocus="errorFocus(this)"
+            onblur="changeBorder(this)"
+          />
+        </div>
+        <div>
+          <label for="cardNumber">CARD NUMBER</label><br />
+          <input
+            required
+            placeholder="e.g. 1234 5678 9123 0000"
+            type="text"
+            name="cardNumber"
+            id="cardNumber"
+            pattern="[0-9]+[0-9]+[0-9]+[0-9]+[
+          ]+[0-9]+[0-9]+[0-9]+[0-9]+[ ]+[0-9]+[0-9]+[0-9]+[0-9]+[
+          ]+[0-9]+[0-9]+[0-9]+[0-9]"
+            oninvalid="toogleError(this, numberError)"
+            oninput="checkBlank(numberError)"
+            onfocus="errorFocus(this)"
+            onblur="changeBorder(this)"
+          />
+          <p class="numberError">Wrong format, numbers only</p>
+        </div>
+        <div class="flex">
+          <div>
+            <label for="expMonth">EXP. DATE</label>
+            <label for="expYear">(MM/YY)</label><br />
+            <input
+              required
+              placeholder="MM"
+              type="number"
+              name="month"
+              id="expMonth"
+              min="1"
+              max="12"
+              oninvalid="toogleError(this, errorDate)"
+              oninput="checkBlank(errorDate)"
+              onfocus="errorFocus(this)"
+              onblur="changeBorder(this)"
+            />
+            <input
+              required
+              placeholder="YY"
+              type="number"
+              name="year"
+              id="expYear"
+              min="00"
+              max="99"
+              oninvalid="toogleError(this, errorDate)"
+              oninput="checkBlank(errorDate)"
+              onfocus="errorFocus(this)"
+              onblur="changeBorder(this)"
+            />
+            <p class="errorDate">Can't be blank</p>
+          </div>
+          <div>
+            <label for="cvc">CVC</label><br />
+            <input
+              required
+              placeholder="e.g. 123"
+              type="tel"
+              name="cvc"
+              id="cvc"
+              pattern="[0-9]{3}"
+              oninvalid="toogleError(this, errorCvc)"
+              oninput="checkBlank(errorCvc)"
+              onfocus="errorFocus(this)"
+              onblur="changeBorder(this)"
+            />
+            <p class="errorCvc">Can't be blank</p>
+          </div>
+        </div>
+        <button type="submit">Confirm</button>
+      </form>
+      <div class="thankYou flex">
+        <img src="images/icon-complete.svg" alt="Completed" />
+        <h2>Thank you!</h2>
+        <p>We've added your card details</p>
+        <button type="submit" onclick="toDefault()">Continue</button>
+      </div>
+    </main>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://github.com/GenesisGran/" target="_blank"
+        >Rafli Ichsan (Genesis Gran)</a
+      >.
+    </footer>
+  </body>
+</html>
