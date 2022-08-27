@@ -8,6 +8,7 @@ This is a solution to the [Interactive card details form challenge on Frontend M
 - [Screenshot](#screenshot)
 - [Links](#links)
 - [Built with](#built-with)
+- [What I learned](#what-i-learned)
 - [Author](#author)
 
 ## The challenge
